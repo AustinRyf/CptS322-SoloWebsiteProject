@@ -1,4 +1,4 @@
-# Smile Warmup Project - CptS322 - Fall2017
+# Smile Warmup Project - CptS322 - Fall2018
 
 ## Part 2: Javascript - Smiles Become Alive
 
