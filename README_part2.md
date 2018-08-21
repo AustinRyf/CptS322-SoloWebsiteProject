@@ -15,23 +15,22 @@ files (you need at least the result of Part 1 Task 2.1; if you did not get the
 styling done, your files should still be usable).
 
 1. Checkout to part2 branch (part2 branch already exists)
-```
-git checkout part2
-```
+    ```
+    git checkout part2
+    ```
 2. Merge your changes from part1 branch to part2. (Your current branch is part2)
-```
-git merge part1
-```
+    ```
+    git merge part1
+    ```
 3. You will now be editing locally, and **remember to commit frequently**.
 
 4. You will find the following provided files (in addition to those you used
    for Part 1):
-    - static/scripts
+    * static/scripts
         - `smiles.js` where all the Javascript goes
         - `jquery.min.js` jQuery library you'll use
 
    You will have to make changes to the .css, the .html, and the .js files.
-
 
 
 5. Add code to the `index.html` to load the Javascript files. Add the
