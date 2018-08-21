@@ -107,7 +107,7 @@ following code inside the `<head>` element at the end (not `<header>`).
 
     <a name='get_smiles'/>
     #### GET /api/smiles
-    ---
+    
     Gets the most recently updated smiles
 
     ##### Query Parameters
