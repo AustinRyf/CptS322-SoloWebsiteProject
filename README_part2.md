@@ -71,11 +71,10 @@ following code inside the `<head>` element at the end (not `<header>`).
     smile posts. When you get to creating new smile posts (Task 4 below),
     you will have to change the `smileSpace` variable in `smiles.js` to
     a new name that will give you your own smile space. ('space' is a attribute in the model(database) in the backend. 
-    When you get the posts, they will be filtered based onthe space.)
+    When you get the posts, they will be filtered based on the space.)
 
 
 ### Task 2: Display All Smiles
--
 
 1. We will not need the posts you have added to `index.html` in Part 1.
    However, we will keep one around to use as a template for
@@ -106,62 +105,62 @@ following code inside the `<head>` element at the end (not `<header>`).
      Read more about [converting epoch time](http://www.epochconverter.com/programming/#javascript).
 
 
-<a name='get_smiles'/>
-#### GET /api/smiles
----
-Gets the most recently updated smiles
+    <a name='get_smiles'/>
+    #### GET /api/smiles
+    ---
+    Gets the most recently updated smiles
 
-##### Query Parameters
-```
-space: the name of the smile space to use. Each smile lives in the separate
-           space (mandatory, non-empty, at most 128 characters) 
-count: maximum number of smiles to return (optional, integer or the string
-           'all'; default = 20)
-order_by: the name of the field by which to sort in decreasing order. One of:
-           like_count
-           happiness_level
-           updated_at  (default)
-           created_at
-```
+    ##### Query Parameters
+    ```
+    space: the name of the smile space to use. Each smile lives in the separate
+            space (mandatory, non-empty, at most 128 characters) 
+    count: maximum number of smiles to return (optional, integer or the string
+            'all'; default = 20)
+    order_by: the name of the field by which to sort in decreasing order. One of:
+            like_count
+            happiness_level
+            updated_at  (default)
+            created_at
+    ```
 
-##### Example Request
-```
-GET /api/smiles?space=initial&count=5&order_by=created_at
-```
+    ##### Example Request
+    ```
+    GET /api/smiles?space=initial&count=5&order_by=created_at
+    ```
 
-##### Example Response
-The response contains a status field (with value 1 if there were no errors, and -1 if there were errors).
-If there were no errors, then the field `smiles` contains the list of smiles.
-```javascript
-{
-    "status" : 1,
-    "smiles": [
-                          {
-                              "id": 2,
-                              "space" : "initial",
-                              "title": "Surround yourself with close friends",
-                              "story": "Studies show that the more close friends you have, and the more social support you have, the happier and healthier you tend to be. This means surround yourself with close friends and family who you can rely on, who truly care about you, are there to help you in times of need, and there to enjoy times with you. Remember to be there for them too!\r\n\r\nhttp://www.bmj.com/content/337/bmj.a2338",
-                              "happiness_level": 3,
-                              "like_count": 338,
-                              "created_at": 1432364394.15,
-                              "updated_at": 1432364394.25
-                          },
-                          ...
-    ]
-}
-```
+    ##### Example Response
+    The response contains a status field (with value 1 if there were no errors, and -1 if there were errors).
+    If there were no errors, then the field `smiles` contains the list of smiles.
+    ```javascript
+    {
+        "status" : 1,
+        "smiles": [
+                            {
+                                "id": 2,
+                                "space" : "initial",
+                                "title": "Surround yourself with close friends",
+                                "story": "Studies show that the more close friends you have, and the more social support you have, the happier and healthier you tend to be. This means surround yourself with close friends and family who you can rely on, who truly care about you, are there to help you in times of need, and there to enjoy times with you. Remember to be there for them too!\r\n\r\nhttp://www.bmj.com/content/337/bmj.a2338",
+                                "happiness_level": 3,
+                                "like_count": 338,
+                                "created_at": 1432364394.15,
+                                "updated_at": 1432364394.25
+                            },
+                            ...
+        ]
+    }
+    ```
 
-If there were errors, then the response contains only two fields:
-```javascript
-{
-    "status" : -1,
-    "errors" : [ ...list of error messages ... ]
-}
-```
+    If there were errors, then the response contains only two fields:
+    ```javascript
+    {
+        "status" : -1,
+        "errors" : [ ...list of error messages ... ]
+    }
+    ```
 
-At this point if you open `index.html` it should look like this:
+    At this point if you open `index.html` it should look like this:
 
-![Part 2 Task 2](https://github.eecs.wsu.edu/322-fall17-arslanay/warmup_project_322/tree/part1/README.d/index-2-2.png)
+    ![Part 2 Task 2](https://github.eecs.wsu.edu/322-fall17-arslanay/warmup_project_322/tree/part1/README.d/index-2-2.png)
 
 ---
 ### Task 3: Handle Liking a Smile
