@@ -15,10 +15,12 @@ files (you need at least the result of Part 1 Task 2.1; if you did not get the
 styling done, your files should still be usable).
 
 1. Checkout to part2 branch (part2 branch already exists)
+    
     ```
     git checkout part2
     ```
 2. Merge your changes from part1 branch to part2. (Your current branch is part2)
+    
     ```
     git merge part1
     ```
