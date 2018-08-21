@@ -246,11 +246,10 @@ just show it when users intend to share a smile.
    (already implemented). This means that the `<form>` is there but
    we do not see it initially. 
 
-1. Change the function `attachCreateHandler` to add a handler for the
-    `Share a smile...` link, to show the `<form>` and hide the `Share a smile...` link and the 'smiles' content.
-    (Hint: In the beginning of `smiles.js` we create the containers 'smiles' and 'create', refering to `smiles` content and the `create` content respectively. In JQuery you may use `hide()` and `show()` functions to hide and show content. For example: `smiles.find('.share-smile').hide()` will hide the `Share a smile...` button (class `share-smile`). `smiles.hide()` will hide the complete `smiles` content.) 
+1. Change the function `attachCreateHandler` to add a handler for the `Share a smile...` link, to show the `<form>` and hide the `Share a smile...` link and the 'smiles' content.
+(Hint: In the beginning of `smiles.js` we create the containers 'smiles' and 'create', refering to `smiles` content and the `create` content respectively. In JQuery you may use `hide()` and `show()` functions to hide and show content. For example: `smiles.find('.share-smile').hide()` will hide the `Share a smile...` button (class `share-smile`). `smiles.hide()` will hide the complete `smiles` content.) 
 
-   At this point, if you open `index.html` and click on the `Share a smile...` you will see the following:
+    At this point, if you open `index.html` and click on the `Share a smile...` you will see the following:
 
     <img src="README.d/create-final.png" width="600">
     [Part 2 Task 4]
