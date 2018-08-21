@@ -194,7 +194,7 @@ Now we'll handle incrementing the like count for the clicked on smile.
 
     <a name='post_like'>
     #### POST /api/smiles/:id/like
-    ---
+    
     Like specified smile. Liking a smile updates its `updated_at` timestamp.
 
     ##### Example Request
@@ -277,7 +277,7 @@ just show it when users intend to share a smile.
 
     <a name='post_create'>
     #### POST /api/smiles
-    ----
+    
     Create a new smile.
 
     ##### Example Request
@@ -342,12 +342,16 @@ just show it when users intend to share a smile.
 Again, we'll use Github Pages to host your Smile app like you did in Part 1. 
 
 1.  Commit your changes locally. Make sure you are in branch `part2`.
+    ```
+    git add .
+    git commit -m "Your own commit message"
+    ```
 
 1. Push the `part2` branch to GitHub:
-```
-git push origin part2
-```
-   - You can submit multiple times, after intermediate tasks, but on the deadline
+    ```
+    git push origin part2
+    ```
+    - You can submit multiple times, after intermediate tasks, but on the deadline
       you need to have submitted the end result.
    
 #### Second : Submit on Blackboard. 
