@@ -160,7 +160,8 @@ following code inside the `<head>` element at the end (not `<header>`).
 
     At this point if you open `index.html` it should look like this:
 
-    ![Part 2 Task 2](https://github.eecs.wsu.edu/322-fall17-arslanay/warmup_project_322/tree/part1/README.d/index-2-2.png)
+    <img src="README.d/index-2-2.png" width="600">
+    [Part 2 Task 2]
 
 ---
 ### Task 3: Handle Liking a Smile
@@ -191,42 +192,42 @@ Now we'll handle incrementing the like count for the clicked on smile.
       "console.error()" with the error messages from the server.
 
 
-<a name='post_like'>
-#### POST /api/smiles/:id/like
----
-Like specified smile. Liking a smile updates its `updated_at` timestamp.
+    <a name='post_like'>
+    #### POST /api/smiles/:id/like
+    ---
+    Like specified smile. Liking a smile updates its `updated_at` timestamp.
 
-##### Example Request
-```
-POST /api/smiles/4/like
-```
+    ##### Example Request
+    ```
+    POST /api/smiles/4/like
+    ```
 
-##### Example Response
-The response contains a status field (with value 1 if there were no errors, and -1 if there were errors).
-If there were no errors, then the field `smile` contains the updated smile.
-```javascript
-{
-    "status" : 1,
-    "smile" : {
-        "id": 4,
-        "space": "initial",
-        "title": "Think positive!",
-        "story": "Instead of thinking 'My goal is to not overweight', think 'I want to be fit and healthy!'",
-        "happiness_level": 2,
-        "like_count": 26,
-        "created_at": 1432364394.15,
-        "updated_at": 1432364394.25,
+    ##### Example Response
+    The response contains a status field (with value 1 if there were no errors, and -1 if there were errors).
+    If there were no errors, then the field `smile` contains the updated smile.
+    ```javascript
+    {
+        "status" : 1,
+        "smile" : {
+            "id": 4,
+            "space": "initial",
+            "title": "Think positive!",
+            "story": "Instead of thinking 'My goal is to not overweight', think 'I want to be fit and healthy!'",
+            "happiness_level": 2,
+            "like_count": 26,
+            "created_at": 1432364394.15,
+            "updated_at": 1432364394.25,
+        }
     }
-}
-```
+    ```
 
-If there were errors, then the response contains only two fields:
-```javascript
-{
-    "status" : -1,
-    "errors" : [ ...list of error messages ... ]
-}
-```
+    If there were errors, then the response contains only two fields:
+    ```javascript
+    {
+        "status" : -1,
+        "errors" : [ ...list of error messages ... ]
+    }
+    ```
 
 ---
 ### Task 4: Handle Creating a New Smile
@@ -251,7 +252,8 @@ just show it when users intend to share a smile.
 
    At this point, if you open `index.html` and click on the `Share a smile...` you will see the following:
 
-   [Part 2 Task 4](https://github.eecs.wsu.edu/322-fall17-arslanay/warmup_project_322/tree/part1/README.d/create-final.png)
+    <img src="README.d/create-final.png" width="600">
+    [Part 2 Task 4]
 
 1. Edit the value of the `smileSpace` in `smiles.js` to pick a new smile
    space where you can create smiles. It is probably easier to pick a
@@ -274,53 +276,53 @@ just show it when users intend to share a smile.
       - In case the server returns an error, you should call the function
         "console.error()" with the error messages from the server.
 
-<a name='post_create'>
-#### POST /api/smiles
-----
-Create a new smile.
+    <a name='post_create'>
+    #### POST /api/smiles
+    ----
+    Create a new smile.
 
-##### Example Request
-```
-POST /api/smiles
-```
-with the following data:
-```javascript
-{
-    "title": "Pursue fulfilling goals",
-    "space": "my space",
-    "story": "The goals that give you the most happiness and fulfillment are  those that are authentic and intrinsic - meaning it's a cause you personally really believe in. It's not done out of pressure from peers, parents, or family. It's not done just to gain ego, money, or power. You do it because you believe it's right, that it'll help yourself and others.",
-    "happiness_level": 3,
-    "like_count": 0
-}
-```
-
-##### Example Response
-The response contains a status field (with value 1 if there were no errors, and -1 if there were errors).
-If there were no errors, then the field `smile` contains the created smile.
-```javascript
-{
-    "status" : 1,
-    "smile" : {
-        "id": 4,
-        "space": "initial",
-        "title": "Think positive!",
-        "story": "Instead of thinking 'My goal is to not overweight', think 'I want to be fit and healthy!'",
-        "happiness_level": 2,
-        "like_count": 26,
-        "created_at": 1432364394.15,
-        "updated_at": 1432364394.25,
+    ##### Example Request
+    ```
+    POST /api/smiles
+    ```
+    with the following data:
+    ```javascript
+    {
+        "title": "Pursue fulfilling goals",
+        "space": "my space",
+        "story": "The goals that give you the most happiness and fulfillment are  those that are authentic and intrinsic - meaning it's a cause you personally really believe in. It's not done out of pressure from peers, parents, or family. It's not done just to gain ego, money, or power. You do it because you believe it's right, that it'll help yourself and others.",
+        "happiness_level": 3,
+        "like_count": 0
     }
-}
-```
+    ```
 
-If there were errors, then the response contains only two fields:
-```javascript
-{
-    "status" : -1,
-    "errors" : [ ...list of error messages ... ]
-}
+    ##### Example Response
+    The response contains a status field (with value 1 if there were no errors, and -1 if there were errors).
+    If there were no errors, then the field `smile` contains the created smile.
+    ```javascript
+    {
+        "status" : 1,
+        "smile" : {
+            "id": 4,
+            "space": "initial",
+            "title": "Think positive!",
+            "story": "Instead of thinking 'My goal is to not overweight', think 'I want to be fit and healthy!'",
+            "happiness_level": 2,
+            "like_count": 26,
+            "created_at": 1432364394.15,
+            "updated_at": 1432364394.25,
+        }
+    }
+    ```
 
-```
+    If there were errors, then the response contains only two fields:
+    ```javascript
+    {
+        "status" : -1,
+        "errors" : [ ...list of error messages ... ]
+    }
+
+    ```
 
 ---
 ### Task 5: Add Error Checking for Creating a New Smile
