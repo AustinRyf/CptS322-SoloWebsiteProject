@@ -37,40 +37,41 @@ styling done, your files should still be usable).
 
 5. Add code to the `index.html` to load the Javascript files. Add the
 following code inside the `<head>` element at the end (not `<header>`).
-```
-<script src="scripts/jquery.min.js"></script>
-<script type="text/javascript" src="scripts/smiles.js"></script>
-<script type="text/javascript">
-    // This is a jQuery convention to say that once all the files
-    // load, the function Smile.start() should run.
-    // This function is defined in the smiles.js
-    $(function() {
-        Smile.start();
-    });
-</script>
-```
 
-This code will load the jQuery library and the Javascript library for our
-project (`smiles.js`).
+    ```
+    <script src="scripts/jquery.min.js"></script>
+    <script type="text/javascript" src="scripts/smiles.js"></script>
+    <script type="text/javascript">
+        // This is a jQuery convention to say that once all the files
+        // load, the function Smile.start() should run.
+        // This function is defined in the smiles.js
+        $(function() {
+            Smile.start();
+        });
+    </script>
+    ```
 
----
-Smile Spaces
----
-In order to allow all of you to use a common backend, we will keep the
-smile posts separated into "spaces". Each smile post lives in one space, named
-with a non-empty string of length at most 128.
+    This code will load the jQuery library and the Javascript library for our
+    project (`smiles.js`).
 
-At the top of `smiles.js` you will see the URL to the backend that you will
-use for Part 2. (In Part 3 of the project you will write your own backend.)
-The provided backend has a space called `initial` that is populated with a few
-smile posts, to help you get started. In the `initial` smile space,
-the shared backend will allow you to
-read the smile posts (Task 2 below), and to increase their like counts (Task 3
-below), but not to add new
-smile posts. When you get to creating new smile posts (Task 4 below),
-you will have to change the `smileSpace` variable in `smiles.js` to
-a new name that will give you your own smile space. ('space' is a attribute in the model(database) in the backend. 
-When you get the posts, they will be filtered based onthe space.)
+    ---
+    Smile Spaces
+    ---
+    In order to allow all of you to use a common backend, we will keep the
+    smile posts separated into "spaces". Each smile post lives in one space, named
+    with a non-empty string of length at most 128.
+
+    At the top of `smiles.js` you will see the URL to the backend that you will
+    use for Part 2. (In Part 3 of the project you will write your own backend.)
+    The provided backend has a space called `initial` that is populated with a few
+    smile posts, to help you get started. In the `initial` smile space,
+    the shared backend will allow you to
+    read the smile posts (Task 2 below), and to increase their like counts (Task 3
+    below), but not to add new
+    smile posts. When you get to creating new smile posts (Task 4 below),
+    you will have to change the `smileSpace` variable in `smiles.js` to
+    a new name that will give you your own smile space. ('space' is a attribute in the model(database) in the backend. 
+    When you get the posts, they will be filtered based onthe space.)
 
 
 ### Task 2: Display All Smiles
