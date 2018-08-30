@@ -11,6 +11,19 @@ header {
 	display: block;
 	width: 100%;
 	text-align: center;
+	background-color: cyan;
+	position: fixed;
+	overflow: hidden;
+	top: 0;
+}
+
+.smiles{
+	width: 100%;
+	margin-top: 180px;
+}
+
+.smile{
+	margin-top: 20px;
 }
 
 .share-smile {
@@ -25,22 +38,38 @@ header {
 }
 
 .happiness-col{
+		display:block;
+
 	width: 80px;
-	left: 0;
 	float: left;
+	text-align: center;
 }
 
 .story-col{
-	width: 80%;
+		display:block;
+
+	width: calc(100% - 160px);
 	float: left;
 }
 
 .like-col{
+		display:block;
+
 	width: 80px;
-	right: 0;
 	float: left;
+	text-align: center;
 }
 
+.timestamp{
+		display:block;
+
+	clear: left;
+	margin-left: 80px;
+}
+
+.happiness-level-1{
+
+}
 /* FINISH ME (Task 3): add responsive styling for the number of layout columns */
 @media screen and (min-width: 800px) {
 }
