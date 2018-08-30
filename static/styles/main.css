@@ -1,5 +1,7 @@
 
 body {
+	background-color: aquamarine;
+	font-family: "Comic Sans MS";
 	margin: 0;
         width: 100%;
         height: 100%;
@@ -8,61 +10,135 @@ body {
 
 /* FINISH ME (Task 2.2+): add the styling for the logo and the create button */
 header {
+	background-color: darkcyan;
 	display: block;
 	width: 100%;
 	text-align: center;
-	background-color: cyan;
 	position: fixed;
 	overflow: hidden;
 	top: 0;
 }
 
+.message{
+	margin-top: 160px;
+}
+
+form{
+	margin-top: 20px;
+	width: 80%;
+}
+
+.logo{
+	margin-top: 1%;
+	margin-bottom: 1%;
+}
+
+#submit-button{
+
+}
+
+#cancel-button{
+	width: 80px;
+}
+
+.my-button {
+	border-width: 3px 3px 3px 3px;
+	border-style: solid;
+	background-color: seagreen;
+	border-color: black;
+	width: 100%;
+	display: block;
+	text-decoration: none;
+	color: black;
+}
+
+.my-button:hover {
+	background-color: deepskyblue;
+}
+
+
 .smiles{
 	width: 100%;
-	margin-top: 180px;
+	margin-top: 220px;
 }
 
 .smile{
-	margin-top: 20px;
+	background-color: mediumaquamarine;
+	margin-top: 15px;
+	display: inline-block;
 }
 
-.share-smile {
+#share-smile {
 	display: block;
-	width: 100%;
+	width: 96%;
+	margin: 10px;
 }
 
 .title {
+	font-size: 20px;
 	display: block;
 	width: 100%;
 	text-align: center;
 }
 
 .happiness-col{
-		display:block;
-
+	display:block;
 	width: 80px;
 	float: left;
 	text-align: center;
 }
 
-.story-col{
-		display:block;
+.happiness-level-1{
+	background-image: url(../images/happiness-level.png);
+	background-repeat: no-repeat;
+	width: 40px;
+	height: 80px;
+	margin-left: 20px;
+}
 
+.happiness-level-2{
+	background-image: url(../images/happiness-level.png);
+	background-repeat: no-repeat;
+	background-position: center;
+	width: 40px;
+	height: 80px;
+	margin-left: 19px;
+}
+
+.happiness-level-3{
+	background-image: url(../images/happiness-level.png);
+	background-repeat: no-repeat;
+	background-position: right;
+	width: 40px;
+	height: 80px;
+	margin-left: 18px;
+}
+
+.story-col{
+	display:block;
 	width: calc(100% - 160px);
 	float: left;
 }
 
 .like-col{
-		display:block;
-
+	display:block;
 	width: 80px;
 	float: left;
 	text-align: center;
 }
 
-.timestamp{
-		display:block;
+.like{
+	background-image: url('../images/heart.png');
+	color: transparent;
+	background-color: transparent;
+	background-repeat: no-repeat;
+	border: none;
+	width: 48px;
+	height: 42px;
+}
 
+.timestamp{
+	display:block;
 	clear: left;
 	margin-left: 80px;
 }
@@ -71,5 +147,23 @@ header {
 
 }
 /* FINISH ME (Task 3): add responsive styling for the number of layout columns */
-@media screen and (min-width: 800px) {
+	.mainbody.smiles{
+		-webkit-column-count: 1; /* Chrome, Safari, Opera */
+    	-moz-column-count: 1; /* Firefox */
+    	column-count: 1;
+    }
+@media screen and (min-width: 801px) {
+	.mainbody.smiles{
+		-webkit-column-count: 2; /* Chrome, Safari, Opera */
+    	-moz-column-count: 2; /* Firefox */
+    	column-count: 2;
+	}
 }
+@media screen and (min-width: 1201px) {
+	.mainbody.smiles{
+		-webkit-column-count: 3; /* Chrome, Safari, Opera */
+    	-moz-column-count: 3; /* Firefox */
+    	column-count: 3;
+	}
+}
+
