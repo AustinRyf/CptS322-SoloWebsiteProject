@@ -1,6 +1,5 @@
-
 body {
-	background-color: aquamarine;
+	background-color: #347B98;
 	font-family: "Comic Sans MS";
 	margin: 0;
         width: 100%;
@@ -10,7 +9,7 @@ body {
 
 /* FINISH ME (Task 2.2+): add the styling for the logo and the create button */
 header {
-	background-color: darkcyan;
+	background-color: #092834;
 	display: block;
 	width: 100%;
 	text-align: center;
@@ -26,7 +25,7 @@ form{
 }
 
 section{
-	margin-top: 220px;
+	margin-top: 225px;
 }
 
 label{
@@ -38,6 +37,11 @@ label{
 .logo{
 	margin-top: 1%;
 	margin-bottom: 1%;
+}
+
+.message{
+	color: white;
+	margin-bottom: 2px;
 }
 
 .title-input{
@@ -77,7 +81,7 @@ label{
 .my-button {
 	border-width: 3px 3px 3px 3px;
 	border-style: solid;
-	background-color: seagreen;
+	background-color: #E4F1F6;
 	border-color: black;
 	width: 100%;
 	display: block;
@@ -86,18 +90,19 @@ label{
 }
 
 .my-button:hover {
-	background-color: deepskyblue;
+	background-color: #1A3E4C;
 }
 
 
 .smiles{
 	width: 100%;
-	margin-top: 220px;
+	margin-top: 225px;
 }
 
 .smile{
-	background-color: mediumaquamarine;
-	margin-top: 15px;
+	background-color: #67AFCB;
+	margin-left: 10px;
+	margin-top: 10px;
 	display: inline-block;
 }
 
@@ -105,6 +110,7 @@ label{
 	display: block;
 	width: 96%;
 	margin: 10px;
+	margin-left: 2%;
 }
 
 .title {
@@ -174,11 +180,10 @@ label{
 	display:block;
 	clear: left;
 	margin-left: 80px;
+	margin-bottom: 5px;
 }
 
-.happiness-level-1{
 
-}
 /* FINISH ME (Task 3): add responsive styling for the number of layout columns */
 	.mainbody.smiles{
 		-webkit-column-count: 1; /* Chrome, Safari, Opera */
