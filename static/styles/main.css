@@ -19,13 +19,20 @@ header {
 	top: 0;
 }
 
-.message{
-	margin-top: 160px;
+form{
+	display: block;
+	margin: auto;
+	width: 80%;
 }
 
-form{
-	margin-top: 20px;
-	width: 80%;
+section{
+	margin-top: 220px;
+}
+
+label{
+	display: block;
+	margin-left: 20%;
+	margin-bottom: 5px;
 }
 
 .logo{
@@ -33,12 +40,38 @@ form{
 	margin-bottom: 1%;
 }
 
-#submit-button{
+.title-input{
+	display: block;
+	width: 60%;
+	margin-left: 20%;
+	margin-bottom: 20px;
+}
 
+.story-input{
+	display: block;
+	width: 60%;
+	margin-left: 20%;
+	margin-bottom: 20px;
+}
+
+.happiness-level-input{
+	display: block;
+	margin-left: 20%;
+	margin-bottom: 20px;
+}
+
+#submit-input{
+	display: block;
+	float: right;
+	width: 80px;
+	margin-right: 20%;
 }
 
 #cancel-button{
+	display: block;
+	float: left;
 	width: 80px;
+	margin-left: 20%;
 }
 
 .my-button {
