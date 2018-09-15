@@ -6,14 +6,51 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="icon" type="image/png" href="images/favicon.png">
         <link rel="stylesheet" type="text/css" href="styles/main.css">
+
+        <script src="scripts/jquery.min.js"></script>
+		<script type="text/javascript" src="scripts/smiles.js"></script>
+		<script type="text/javascript">
+    		// This is a jQuery convention to say that once all the files
+    		// load, the function Smile.start() should run.
+    		// This function is defined in the smiles.js
+    		$(function() {
+        		Smile.start();
+    	});
+		</script>
+
 </head>
 <body>
         <header>
                 <!-- Logo has been added -->
                 <div class="logo"> <img src="images./smile.png"/> </div>
                 <div class="create">
+
+					<a id="share-smile" class="my-button"> Share a smile! </a>
+
+                	<form method="get" action="index.html">
+                		<div class="message">Tell us something that made you smile!</div>
+
+						<input type="text" placeholder="Title" class="title-input" name="title" />
+						<!-- Form fields added -->
+						<textarea class="story-input" name="story" rows=7>Share a story...</textarea>
+
+						<label>How happy did this make you?</label>
+
+						<select class="happiness-level-input" name="happiness-level">
+							<option value="1">Happy</option>
+							<option value="2">Really Happy</option>
+							<option value="3">So ecstatic, I can't stop smiling!</option>
+						</select>
+
+						<div>
+							<input type="submit" class="my-button" id="submit-input" value="Post"/>
+							<button id="cancel-button" href="index.html" class="my-button">Cancel</button>
+						</div>
+	   				</form>
+
+
                     <!-- FINISH ME: add a link to the create page -->
-                    <a id="share-smile" class="my-button" href="create.html"> Share a smile! </a>
+                    
                 </div>
         </header>
 
@@ -24,7 +61,6 @@
 
                 	<div class="happiness-col">
                 		<div class="happiness-level">
-							<div class="happiness-level-1"> </div>
                 		</div>
                 		
                 	</div>
@@ -40,48 +76,6 @@
 
                 	<div class="timestamp"> Posted at 1:03pm May 22, 2015 </div>
                 </article>
-
-                <article class="smile">
-                	<div class="title">This is also a filler title</div>
-
-                	<div class="happiness-col">
-                		<div class="happiness-level"> </div>
-                		<div class="happiness-level-2"> </div>
-                	</div>
-
-                	<div class="story-col">
-                		<div class="Story">This is also a bunch of filler text. This is also a bunch of filler text. This is also a bunch of filler text. This is also a bunch of filler text. This is also a bunch of filler text. This is also a bunch of filler text. This is also a bunch of filler text. This is also a bunch of filler text. This is also a bunch of filler text. This is also a bunch of filler text. This is also a bunch of filler text. This is also a bunch of filler text. This is also a bunch of filler text. This is also a bunch of filler text. This is also a bunch of filler text. This is also a bunch of filler text.</div>
-                	</div>
-
-                	<div class="like-col">
-                		<button class="like"> "Like" </button>
-                		<div class="count"> 25 </div>
-                	</div>
-
-                	<div class="timestamp"> Posted at 1:03pm May 22, 2015 </div>
-
-                </article>
-
-                <article class="smile">
-                	<div class="title">This is another filler title</div>
-
-                	<div class="happiness-col">
-                		<div class="happiness-level"> </div>
-                		<div class="happiness-level-3"> </div>
-                	</div>
-
-                	<div class="story-col">
-                		<div class="Story">This is another bunch of filler text. This is another bunch of filler text. This is another bunch of filler text. This is another bunch of filler text. This is another bunch of filler text. This is another bunch of filler text. This is another bunch of filler text. This is another bunch of filler text. This is another bunch of filler text. This is another bunch of filler text. This is another bunch of filler text. This is another bunch of filler text. This is another bunch of filler text. This is another bunch of filler text. This is another bunch of filler text.</div>
-                	</div>
-
-                	<div class="like-col">
-                		<button class="like"> "Like" </button>
-                		<div class="count"> 25 </div>
-                	</div>
-
-                	<div class="timestamp"> Posted at 1:03pm May 22, 2015 </div
-                </article>
-
      </section>
 </body>
 </html>

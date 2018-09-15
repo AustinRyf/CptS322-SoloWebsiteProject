@@ -13,7 +13,7 @@ var Smile = (function() {
     //            that your new smiles will be merged with everybody else's
     //            which can get confusing. Change this to a name that 
     //            is unlikely to be used by others. 
-    var smileSpace = 'initial'; // The smile space to use. 
+    var smileSpace = 'ryfSmiles'; // The smile space to use. 
 
 
     var smiles; // smiles container, value set in the "start" method below
@@ -76,6 +76,26 @@ var Smile = (function() {
         // Now fill in the data that we retrieved from the server
         newElem.find('.title').text(smile.title);
         // FINISH ME (Task 2): fill-in the rest of the data
+        newElem.find('.Story').text(smile.story);
+        newElem.find('.count').text(smile.like_count);
+        newElem.find('.timestamp').text("Posted on " + smile.created_at);
+        console.log(smile.created_at);
+
+        if(smile.happiness_level == 1)
+        {
+            newElem.find('.happiness-level').addClass('happiness-level-1');
+        }
+
+        if(smile.happiness_level == 2)
+        {
+            newElem.find('.happiness-level').addClass('happiness-level-2');
+        }
+
+        if(smile.happiness_level == 3)
+        {
+            newElem.find('.happiness-level').addClass('happiness-level-3');
+        }
+
         if (beginning) {
             smiles.prepend(newElem);
         } else {
@@ -91,12 +111,19 @@ var Smile = (function() {
     var displaySmiles = function() {
         // Prepare the AJAX handlers for success and failure
         var onSuccess = function(data) {
-            /* FINISH ME (Task 2): display smiles with most recent smiles at the beginning */
+            /* Still need to figure out how to put most recent smile at beginning */
+            for (i = 0; i < data.smiles.length; i++)
+            {
+                insertSmile(data.smiles[i], true);
+            }
+
+            console.log(data);
         };
         var onFailure = function() { 
             console.error('display smiles failed'); 
         };
-        /* FINISH ME (Task 2): make a GET request to get recent smiles */
+        /* Finished: Get request correctly made */
+        makeGetRequest("/api/smiles?space=ryfSmiles&count=10&order_by=created_at", onSuccess, onFailure);
     };
 
     /**
@@ -106,16 +133,18 @@ var Smile = (function() {
     var attachLikeHandler = function(e) {
         // Attach this handler to the 'click' action for elements with class 'like'
         smiles.on('click', '.like', function(e) {
-            // FINISH ME (Task 3): get the id of the smile clicked on to use in the POST request
-            var smileId = '123'; 
+            // Finished: Retrieves id of smile that is liked
+            var smileId = $(e.target).parents('.smile').attr('id'); 
             // Prepare the AJAX handlers for success and failure
             var onSuccess = function(data) {
-                /* FINISH ME (Task 3): update the like count in the UI */
+                // Finished: Like count is updated
+                document.getElementById(smileId).querySelector('.count').textContent++;
             };
             var onFailure = function() { 
                 console.error('like smile error'); 
             };
-            /* FINISH ME (Task 3): make a POST request to like this smile */
+            // Finished: Request to like smile is sent to server
+            makePostRequest("/api/smiles/"+smileId+"/like", null, onSuccess, onFailure);
         });
     };
 
@@ -128,28 +157,64 @@ var Smile = (function() {
         // First, hide the form, initially 
         create.find('form').hide();
 
-        // FINISH ME (Task 4): add a handler to the 'Share a smile...' button to
-        //                     show the 'form' and hide to button
+        // Finished: Upon clicking the share a smile button, the smile post page will be shown
+        create.on('click', '#share-smile', function(e)
+        {
+            smiles.hide();
+            create.find('form').show();
+            create.find('#share-smile').hide();
+        });
 
-        // FINISH ME (Task 4): add a handler for the 'Cancel' button to hide the form
-        // and show the 'Shared a smile...' button
+        // Finished: Upon clicking the cancel or post button, the smiles page will be shown
+        create.on('click', '#cancel-button', function(e)
+        {
+            smiles.show();
+            create.find('form').hide();
+            create.find('#share-smile').show();
+        });
 
         // The handler for the Post button in the form
-        create.on('click', '.submit-input', function (e) {
+        create.on('click', '#submit-input', function (e) {
             e.preventDefault (); // Tell the browser to skip its default click action
 
             var smile = {}; // Prepare the smile object to send to the server
             smile.title = create.find('.title-input').val();
-            // FINISH ME (Task 4): collect the rest of the data for the smile
+            if(smile.title.length < 1 || smile.title.length > 64)
+            {
+                alert("Title must be greater than 0 characters and less than 64 characters\n");
+                return;
+            }
+            // Finished: Smile data is collected and error checking implemented
+            smile.story = create.find('.story-input').val();
+            if(smile.story.length < 1 || smile.story.length > 2048)
+            {
+                alert("Story must be greater than 0 characters and less than 2048 characters\n");
+                return;
+            }
+
+            smile.happiness_level = parseInt(create.find('select').val());
+            if(smile.happiness_level < 1 || smile.happiness_level > 3)
+            {
+                alert("Happiness level must be greater than 0 and less than 3\n");
+                return;
+            }
+
+            smile.like_count = 0;
+            smile.space = smileSpace;
+
             var onSuccess = function(data) {
-                // FINISH ME (Task 4): insert smile at the beginning of the smiles container
+                // Finished: Smile is inserted at beginning
+                insertSmile(data.smile, true);
+                smiles.show();
+                create.find('form').hide();
+                create.find('#share-smile').show();
             };
             var onFailure = function() { 
                 console.error('create smile failed'); 
             };
             
-            // FINISH ME (Task 4): make a POST request to create the smile, then 
-            //            hide the form and show the 'Shared a smile...' button
+            // Finished: Post request correctly made
+            makePostRequest("/api/smiles?space=ryfSmiles", smile, onSuccess, onFailure);
         });
 
     };
