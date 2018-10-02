@@ -14,7 +14,7 @@ db = sqlalchemy.SQLAlchemy(app)
 
 class Smile(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    # TODO 1: add all of the columns for the other table attributes
+    # FINISHED: Columns for other attributes added
     space = db.Column(db.String(128), nullable = False)
     title = db.Column(db.String(64), nullable = False)
     story = db.Column(db.String(2048), nullable = False)
@@ -38,13 +38,13 @@ def index():
         return "Must provide space", 500
 
     count = request.args.get('count', None)
-    # TODO 3: limit the number of posts based on the count (if it exists)
     if count is None:
    		count = 10
 
     order_by = request.args.get('order_by', None)
     
-    # TODO 2: set the column which you are ordering on (if it exists)
+    # FINISHED: Column in which ordering is done on set
+    # FINISHED: Number of posts limited, filter by space also set
     query = Smile.query.filter_by(space=space).order_by(order_by).limit(count).all()
     #query = Smile.query.all()
 
@@ -57,10 +57,25 @@ def index():
     return jsonify({"status": 1, "smiles": result})
 
 
+
+
+
+
 # show
 # loads a smile given the id as a value in the URL
 
-# TODO 4: create the route for show
+# FINISHED: Created route to show posts
+@app.route(base_url + 'smiles/<int:id>', methods=["GET"])
+def show(id):
+    row = Smile.query.filter_by(id=id).first()
+
+    return jsonify({"smile": row_to_obj(row), "status": 1}), 200
+
+
+# create
+# creates a smile given the params
+
+# FINISHED: Created route to create posts
 @app.route(base_url + 'smiles', methods=['POST'])
 def create():
     smile = Smile(**request.json)
@@ -71,23 +86,13 @@ def create():
 
     return jsonify({"status": 1, "smile": row_to_obj(smile)}), 200
 
-# create
-# creates a smile given the params
-
-# TODO 5: create the route for create
-@app.route(base_url + 'smiles/<int:id>', methods=["GET"])
-def show(id):
-    row = Smile.query.filter_by(id=id).first()
-
-    return jsonify({"smile": row_to_obj(row), "status": 1}), 200
-
 
 
 # delete_smiles
 # delete given an space
 # delete all smiles in that space
 
-# TODO 6: create the route for delete_smiles
+# FINISHED: Created route to delete posts
 @app.route(base_url + 'smiles', methods=["DELETE"])
 def delete():
 	space = request.args.get('space', None) 
@@ -107,7 +112,7 @@ def delete():
 # post_like
 # loads a smile given an ID and increments the count by 1
 
-# TODO 7: create the route for post_like
+# FINISHED: Created a route to like smiles
 @app.route(base_url + 'smiles/<int:id>/like', methods=["POST"])
 def like(id):
     row = Smile.query.filter_by(id=id).first()
